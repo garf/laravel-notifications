@@ -6,7 +6,7 @@ use Illuminate\Support\Traits\Macroable;
 use Session;
 
 /**
- * Class Conf
+ * Class Notifications
  * @package Gaaarfild\LaravelNotifications
  */
 class Notifications
