@@ -94,6 +94,8 @@ Notifications::all()->toJson();
 Notifications::all()->toBootstrap();
 ```
 
+[Twitter Bootstrap](http://getbootstrap.com) required.
+
 ### Other
 
 #### Count Messages
@@ -107,9 +109,6 @@ Notifications::all()->count();
 ``` PHP
 Notifications::all()->first();
 ```
-
-[Twitter Bootstrap](http://getbootstrap.com) required.
-
 
 ## Contributions
 
