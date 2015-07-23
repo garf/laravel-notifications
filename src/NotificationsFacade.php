@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Facade;
 
-/**
- * @see \Illuminate\Html\FormBuilder
- */
 class NotificationsFacade extends Facade
 {
 

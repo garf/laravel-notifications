@@ -7,7 +7,7 @@ use Session;
 
 /**
  * Class Conf
- * @package Gaaarfild\LaravelConf
+ * @package Gaaarfild\LaravelNotifications
  */
 class Notifications
 {
