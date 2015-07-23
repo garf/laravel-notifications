@@ -1,0 +1,22 @@
+{
+    "name": "gaaarfild/laravel-notifications",
+    "description": "Convenient flash notifications",
+    "keywords": ["laravel", "notifications"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dinar Garipov",
+            "email": "garipov.dinar@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": ">=4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gaaarfild\\LaravelNotifications\\": "src/"
+        }
+    }
+}
