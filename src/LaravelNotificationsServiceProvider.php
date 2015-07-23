@@ -24,7 +24,7 @@ class LaravelNotificationsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerLaravelNotifications();
-        $this->app->alias('conf', \Gaaarfild\LaravelNotifications\Notifications::class);
+        $this->app->alias('Notifications', \Gaaarfild\LaravelNotifications\Notifications::class);
     }
 
     private function registerLaravelNotifications()
