@@ -5,9 +5,9 @@
 
 Notification system for Laravel 5.
 
-After saving some data from user, often, you have to redirect to proper page ans notificate user, that everything done successfully, or, some errors appeared.
+After saving some data from user, often, you have to redirect to proper page and notify user, that everything done successfully or some errors appeared.
 
-Now you can do this more convenient and easy.
+Now you can do this more convenient and easy way.
 
 ## Install
 
@@ -52,7 +52,7 @@ Notifications::set('Your message text', 'type', 'group');
 ```
 
 `$type` param used especially for Twitter Bootstrap render. It displays alerts with respective class.
- 
+
 i.e. If you set `type` to `danger`, alert with class 'alert alert-danger' will be generated on `toBootstrap()` formate method.
 
 `$group` param groups messages to groups. :) On the next Request you can retrieve them by group.
