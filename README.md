@@ -51,11 +51,11 @@ If you want to use `Notifications` facade, add to same file at the `aliases` sec
 Notifications::set('Your message text', 'type', 'group');
 ```
 
-$type param used especially for Twitter Bootstrap render. It displays alerts with respective class.
+`$type` param used especially for Twitter Bootstrap render. It displays alerts with respective class.
  
 i.e. If you set `type` to `danger`, alert with class 'alert alert-danger' will be generated on `toBootstrap()` formate method.
 
-$group param groups messages to groups. :) On the next Request you can retrieve them by group.
+`$group` param groups messages to groups. :) On the next Request you can retrieve them by group.
 
 
 ### Retrieving messages
