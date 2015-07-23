@@ -43,7 +43,7 @@ class Notifications
      * @param string $type
      * @param string $group
      */
-    public function set($message, $type='info', $group='0')
+    public function add($message, $type='info', $group='0')
     {
         $this->messages[] = array('message' => $message, 'type' => $type, 'group' => $group);
         Session::flash($this->session_key, $this->messages);
@@ -112,6 +112,27 @@ class Notifications
     public function get()
     {
         return $this->filtered;
+    }
+
+    /**
+     * Get first filtered message
+     *
+     * @param array $default
+     * @return array
+     */
+    public function first($default = [])
+    {
+        return (count($this->filtered) != 0) ? $this->filtered[0] : $default;
+    }
+
+    /**
+     * Count filtered messages amount
+     *
+     * @return array
+     */
+    public function count()
+    {
+        return count($this->filtered);
     }
 
     /**
