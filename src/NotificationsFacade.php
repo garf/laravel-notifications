@@ -1,4 +1,6 @@
-<?php namespace Gaaarfild\LaravelNotifications;
+<?php
+
+namespace Gaaarfild\LaravelNotifications;
 
 use Illuminate\Support\Facades\Facade;
 
