@@ -69,13 +69,13 @@ Notifications::all()->get();
 #### Messages by group
 
 ``` PHP
-Notifications::byGroup()->get();
+Notifications::byGroup('group')->get();
 ```
 
 #### Messages by type
 
 ``` PHP
-Notifications::byType()->get();
+Notifications::byType('type')->get();
 ```
 
 ### Format messages
@@ -84,14 +84,36 @@ You also can format messages
 
 #### JSON
 
+You can retrieve and format all messages as JSON
+
 ``` PHP
 Notifications::all()->toJson();
 ```
 
+Or can filter them by group or type
+
+``` PHP
+Notifications::byType('success')->toJson();
+
+Notifications::byGroup('login')->toJson();
+```
+
+
 #### Twitter Bootstrap Alerts
+
+You can also format your messages directly to Twitter Bootstrap alerts.
 
 ``` PHP
 Notifications::all()->toBootstrap();
+```
+
+And you can filter them by group or type as well:
+
+
+``` PHP
+Notifications::byType('success')->toBootstrap();
+
+Notifications::byGroup('login')->toBootstrap();
 ```
 
 [Twitter Bootstrap](http://getbootstrap.com) required.
