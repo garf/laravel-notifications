@@ -110,6 +110,22 @@ Notifications::all()->count();
 Notifications::all()->first();
 ```
 
+#### FormRequest usage
+
+You can also override form request method `formatErrors()`, to display errors from validator in your Form Requests.
+
+``` PHP
+
+    public function formatErrors(Validator $validator){
+        foreach ($validator->errors()->all() as $error) {
+            Notifications::add($error, 'danger');
+        }
+
+        return $validator->errors()->getMessages();
+    }
+    
+```
+
 ## Contributions
 
 Contributions are highly appreciated.
