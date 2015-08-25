@@ -132,9 +132,8 @@ Notifications::all()->count();
 Notifications::all()->first();
 ```
 
-#### FormRequest usage
-
-You can also override form request method `formatErrors()`, to display errors from validator in your Form Requests.
+#### Form Request usage
+If you want to display errors via Laravel Form Request, you have to override method `formatErrors()` in your Form Request Class.
 
 ``` PHP
 
@@ -147,6 +146,9 @@ You can also override form request method `formatErrors()`, to display errors fr
     }
     
 ```
+Don't forget to import Validator class in head of the file:
+
+`use Illuminate\Contracts\Validation\Validator;`
 
 ## Contributions
 
