@@ -69,13 +69,13 @@ Notifications::all()->get();
 #### Messages by group
 
 ``` PHP
-Notifications::byGroup('group')->get();
+Notifications::byGroup('my-group')->get();
 ```
 
 #### Messages by type
 
 ``` PHP
-Notifications::byType('type')->get();
+Notifications::byType('warning')->get();
 ```
 
 ### Format messages
@@ -111,9 +111,9 @@ And you can filter them by group or type as well:
 
 
 ``` PHP
-Notifications::byType('success')->toBootstrap();
+Notifications::byType('info')->toBootstrap();
 
-Notifications::byGroup('login')->toBootstrap();
+Notifications::byGroup('registration')->toBootstrap();
 ```
 
 [Twitter Bootstrap](http://getbootstrap.com) required.
