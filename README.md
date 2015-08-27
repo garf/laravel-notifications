@@ -14,7 +14,7 @@ Now you can do this more convenient and easy way.
 Add
 
 ``` JSON
-"gaaarfild/laravel-notifications": "dev-master"
+"gaaarfild/laravel-notifications": "1.0.*"
 ```
 
 to your `composer.json` file into `require` section.
