@@ -3,7 +3,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Laravel Version](https://img.shields.io/badge/laravel-5-orange.svg?style=flat-square)](http://laravel.com)
 
-[English Documentation / Английская документация](https://github.com/gaaarfild/laravel-notifications/blob/master/README-ru.md)
+[English Documentation / Английская документация](https://github.com/gaaarfild/laravel-notifications/blob/master/README.md)
 
 Система уведомлений для Laravel 5.
 
