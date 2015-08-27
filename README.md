@@ -3,6 +3,8 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Laravel Version](https://img.shields.io/badge/laravel-5-orange.svg?style=flat-square)](http://laravel.com)
 
+[Russian Documentation / Русская документация](https://github.com/gaaarfild/laravel-notifications/blob/master/README-ru.md)
+
 Notification system for Laravel 5.
 
 Often after saving some data from user you have to redirect to proper page and notificate user that everything done successfully or some errors appeared.
@@ -152,7 +154,7 @@ If you want to display errors via Laravel Form Request, you have to override met
     }
 
 ```
-Don't forget to import Validator class in head of the file:
+Don't forget to import `Validator` class in head of the file:
 
 `use Illuminate\Contracts\Validation\Validator;`
 
