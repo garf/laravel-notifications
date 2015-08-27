@@ -69,14 +69,7 @@ class Notifications
      */
     public function byGroup($group)
     {
-        $messages = Session::get($this->session_key, []);
-
-        $filtered_messages = [];
-        foreach ($messages as $message) {
-            if ($message['group'] == $group) {
-                $filtered_messages[] = $message;
-            }
-        }
+        $filtered_messages = $this->_filterMessage('group', $group);
 
         $this->filtered = $filtered_messages;
         return $this;
@@ -90,19 +83,13 @@ class Notifications
      */
     public function byType($type)
     {
-        $messages = Session::get($this->session_key, []);
-
-        $filtered_messages = [];
-        foreach ($messages as $message) {
-            if ($message['type'] == $type) {
-                $filtered_messages[] = $message;
-            }
-        }
+        $filtered_messages = $this->_filterMessage('type', $type);
 
         $this->filtered = $filtered_messages;
 
         return $this;
     }
+
 
     /**
      * Return filtered messages
@@ -136,6 +123,17 @@ class Notifications
     }
 
     /**
+     * Check if messages exists
+     *
+     * @return array
+     */
+    public function has()
+    {
+        return count($this->filtered) > 0;
+    }
+
+
+    /**
      * Format filtered messages to JSON
      *
      * @return mixed
@@ -161,4 +159,26 @@ class Notifications
         }
         return $html;
     }
+
+     /**
+     * Filter messages by param
+     *
+     * @param $param
+     * @param $value
+     * @return array
+     */
+    private function _filterMessage($param, $value)
+    {
+        $messages = Session::get($this->session_key, []);
+
+        $filtered_messages = [];
+        foreach ($messages as $message) {
+            if ($message[$param] == $value) {
+                $filtered_messages[] = $message;
+            }
+        }
+
+        return $filtered_messages;
+    }
+
 }

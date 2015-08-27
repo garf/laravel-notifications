@@ -126,6 +126,12 @@ Notifications::byGroup('registration')->toBootstrap();
 Notifications::all()->count();
 ```
 
+#### Check if messages exist
+
+``` PHP
+Notifications::all()->has();
+```
+
 #### Get First Message
 
 ``` PHP
@@ -144,7 +150,7 @@ If you want to display errors via Laravel Form Request, you have to override met
 
         return $validator->errors()->getMessages();
     }
-    
+
 ```
 Don't forget to import Validator class in head of the file:
 
