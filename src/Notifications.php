@@ -69,7 +69,7 @@ class Notifications
      */
     public function byGroup($group)
     {
-        $filtered_messages = $this->_filterMessage('group', $group);
+        $filtered_messages = $this->filterMessage('group', $group);
 
         $this->filtered = $filtered_messages;
         return $this;
@@ -83,7 +83,7 @@ class Notifications
      */
     public function byType($type)
     {
-        $filtered_messages = $this->_filterMessage('type', $type);
+        $filtered_messages = $this->filterMessage('type', $type);
 
         $this->filtered = $filtered_messages;
 
@@ -167,7 +167,7 @@ class Notifications
      * @param $value
      * @return array
      */
-    private function _filterMessage($param, $value)
+    private function filterMessage($param, $value)
     {
         $messages = Session::get($this->session_key, []);
 
