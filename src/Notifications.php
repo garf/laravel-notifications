@@ -6,65 +6,66 @@ use Illuminate\Support\Traits\Macroable;
 use Session;
 
 /**
- * Class Notifications
- * @package Gaaarfild\LaravelNotifications
+ * Class Notifications.
  */
 class Notifications
 {
-
     use Macroable;
 
     /**
-     * Messages to set to next request
+     * Messages to set to next request.
      */
     private $messages = [];
     /**
-     * Session key to store messages
+     * Session key to store messages.
      *
      * @var string
      */
     private $session_key = 'laravel-notifications.messages';
     /**
-     * Filtered messages to return
+     * Filtered messages to return.
      *
      * @var array
      */
     private $filtered = [];
 
     /**
-     * Create new instance of Notifications class
+     * Create new instance of Notifications class.
      */
-    public function __construct() {}
+    public function __construct()
+    {
+    }
 
     /**
-     * Set new message for the next request
+     * Set new message for the next request.
      *
      * @param $message
      * @param string $type
      * @param string $group
      */
-    public function add($message, $type='info', $group='0')
+    public function add($message, $type = 'info', $group = '0')
     {
-        $this->messages[] = array('message' => $message, 'type' => $type, 'group' => $group);
+        $this->messages[] = ['message' => $message, 'type' => $type, 'group' => $group];
         Session::flash($this->session_key, $this->messages);
     }
 
     /**
-     * Get all messages
+     * Get all messages.
      *
      * @return array
      */
     public function all()
     {
         $this->filtered = Session::get($this->session_key, []);
+
         return $this;
     }
 
-
     /**
-     * Filter messages by group
+     * Filter messages by group.
      *
      * @param $group
+     *
      * @return $this
      */
     public function byGroup($group)
@@ -72,13 +73,15 @@ class Notifications
         $filtered_messages = $this->filterMessage('group', $group);
 
         $this->filtered = $filtered_messages;
+
         return $this;
     }
 
     /**
-     * Filter messages by type
+     * Filter messages by type.
      *
      * @param $type
+     *
      * @return $this
      */
     public function byType($type)
@@ -90,9 +93,8 @@ class Notifications
         return $this;
     }
 
-
     /**
-     * Return filtered messages
+     * Return filtered messages.
      *
      * @return array
      */
@@ -102,9 +104,10 @@ class Notifications
     }
 
     /**
-     * Get first filtered message
+     * Get first filtered message.
      *
      * @param array $default
+     *
      * @return array
      */
     public function first($default = [])
@@ -113,7 +116,7 @@ class Notifications
     }
 
     /**
-     * Count filtered messages amount
+     * Count filtered messages amount.
      *
      * @return array
      */
@@ -123,7 +126,7 @@ class Notifications
     }
 
     /**
-     * Check if messages exists
+     * Check if messages exists.
      *
      * @return array
      */
@@ -132,9 +135,8 @@ class Notifications
         return count($this->filtered) > 0;
     }
 
-
     /**
-     * Format filtered messages to JSON
+     * Format filtered messages to JSON.
      *
      * @return mixed
      */
@@ -144,7 +146,7 @@ class Notifications
     }
 
     /**
-     * Format filtered messages as Twitter Bootstrap alerts
+     * Format filtered messages as Twitter Bootstrap alerts.
      *
      * @return string
      */
@@ -152,19 +154,21 @@ class Notifications
     {
         $html = '';
         foreach ($this->filtered as $message) {
-            $html .= '<div class="alert alert-' . $message['type'] . ' alert-dismissable" style="margin-bottom: 1px;">
+            $html .= '<div class="alert alert-'.$message['type'].' alert-dismissable" style="margin-bottom: 1px;">
                               <button type="button" tabindex="-1" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                              ' . $message['message'] . '
+                              '.$message['message'].'
                             </div>';
         }
+
         return $html;
     }
 
-     /**
-     * Filter messages by param
+    /**
+     * Filter messages by param.
      *
      * @param $param
      * @param $value
+     *
      * @return array
      */
     private function filterMessage($param, $value)
@@ -180,5 +184,4 @@ class Notifications
 
         return $filtered_messages;
     }
-
 }
