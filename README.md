@@ -1,7 +1,9 @@
 # Laravel Convenient System Notifications
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Laravel Version](https://img.shields.io/badge/laravel-5-orange.svg?style=flat-square)](http://laravel.com)
+[![Laravel Version](https://img.shields.io/badge/laravel-5.1-orange.svg?style=flat-square)](http://laravel.com)
+[![Packagist](https://img.shields.io/packagist/dt/gaaarfild/laravel-notifications.svg)]()
+[![Licence](https://img.shields.io/packagist/l/gaaarfild/laravel-notifications.svg)](https://github.com/gaaarfild/laravel-notifications/blob/master/LICENSE)
 
 ![Laravel Notifications](notifications.png)
 
