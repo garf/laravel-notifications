@@ -142,7 +142,7 @@ class Notifications
      */
     public function toJson()
     {
-        return json_enccode($this->filtered);
+        return json_encode($this->filtered);
     }
 
     /**
