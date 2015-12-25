@@ -29,7 +29,7 @@ class LaravelNotificationsServiceProvider extends ServiceProvider
 
     private function registerLaravelNotifications()
     {
-        $this->app->bindShared('Notifications', function ($app) {
+        $this->app->singleton('Notifications', function ($app) {
             return new Notifications();
         });
     }
