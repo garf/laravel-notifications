@@ -50,6 +50,12 @@ If you want to use `Notifications` facade, add to same file at the `aliases` sec
 ]
 ```
 
+To change the templates, please execute the following command in the console:
+
+`php artisan vendor:publish`
+
+Now you will be able to set any view file for notifications render in `laravel-notifications.php`.
+
 ## Usage
 
 ### Save messages for the next request
@@ -63,6 +69,16 @@ Notifications::add('Your message text', 'type', 'group');
 i.e. If you set `type` to `danger`, alert with class 'alert alert-danger' will be generated on `toBootstrap()` formate method.
 
 `$group` param groups messages to groups. :) On the next Request you can retrieve them by group.
+
+Also more convenient aliases can be used:
+
+``` php
+    Notifications::info('Your message text', 'group');
+    Notifications::success('Your message text', 'group');
+    Notifications::warning('Your message text', 'group');
+    Notifications::danger('Your message text', 'group');
+    Notifications::error('Your message text', 'group');
+```
 
 
 ### Retrieving messages
@@ -106,24 +122,26 @@ Notifications::byGroup('login')->toJson();
 ```
 
 
-#### Twitter Bootstrap Alerts
+#### Render with blade view files
 
-You can also format your messages directly to Twitter Bootstrap alerts.
+You can also render your notifications with custom view files
 
 ``` PHP
-Notifications::all()->toBootstrap();
+Notifications::all()->toHTML();
 ```
 
 And you can filter them by group or type as well:
 
 
 ``` PHP
-Notifications::byType('info')->toBootstrap();
+Notifications::byType('info')->toHTML();
 
-Notifications::byGroup('registration')->toBootstrap();
+Notifications::byGroup('registration')->toHTML();
 ```
 
-[Twitter Bootstrap](http://getbootstrap.com) required.
+by default method uses Twitter Bootstrap alerts format.
+
+[Twitter Bootstrap](http://getbootstrap.com) can be required.
 
 ### Other
 

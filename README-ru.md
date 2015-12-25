@@ -50,6 +50,14 @@ $ composer update
 ]
 ```
 
+Чтобы иметь возможность задавать собственный шаблон вывода сообщений, наберите в консоли:
+
+`php artisan vendor:publish`
+
+Теперь вы сможете указать в файле конфигураци `laravel-notifications.php` 
+любой удобный вам шаблон для отображения сообщений.
+
+
 ## Использование
 
 ### Создать сообщение для отображения на следующей странице
@@ -60,9 +68,24 @@ Notifications::add('Your message text', 'type', 'group');
 
 Параметр `$type` используется специально для Twitter Bootstrap. Он отображает алерт-боксы с соответствующим классом.
 
-Например, если вы задали `type` как `danger`, то при использовании метода `toBootstrap()` будет отображен алерт-бокс с классом `alert alert-danger`.
+Например, если вы задали `type` как `danger`, то при использовании метода `toHTML()` по умолчанию
+будет отображен алерт-бокс с классом `alert alert-danger`.
 
-Параметр `$group`, группирует сообщения по группам. :) Это нужно, чтобы вы могли при отображении сообщений, фильтровать их по группам, например, отображая определенные группы в определенном месте страницы.
+Параметр `$group`, группирует сообщения по группам. :) 
+Это нужно, чтобы вы могли при отображении сообщений, фильтровать их по группам, 
+например, отображая определенные группы в определенном месте страницы.
+
+
+Так же можно использовать более удобные методы создания сообщений:
+
+``` php
+    Notifications::info('Your message text', 'group');
+    Notifications::success('Your message text', 'group');
+    Notifications::warning('Your message text', 'group');
+    Notifications::danger('Your message text', 'group');
+    Notifications::error('Your message text', 'group');
+```
+
 
 ### Получение сообщений
 
@@ -105,21 +128,23 @@ Notifications::byGroup('login')->toJson();
 ```
 
 
-#### Алерты Twitter Bootstrap
+#### Отобразить с помощью шаблонизатора Blade
 
-Вы так же можете отформатировать сообщения прямо в формат Twitter BVootstrap.
+Вы так же можете отформатировать сообщения с помощью шаблонизатора Blade.
 
 ``` PHP
-Notifications::all()->toBootstrap();
+Notifications::all()->toHTML();
 ```
 
 И конечно же можете их отфильтровать по группе и типу
 
 ``` PHP
-Notifications::byType('info')->toBootstrap();
+Notifications::byType('info')->toHTML();
 
-Notifications::byGroup('registration')->toBootstrap();
+Notifications::byGroup('registration')->toHTML();
 ```
+
+По умолчанию используется Twitter Bootstrap 3.
 
 Требуется [Twitter Bootstrap](http://getbootstrap.com).
 
@@ -145,7 +170,8 @@ Notifications::all()->first();
 
 #### Использование в Form Request
 
-Если вы хотите отображать ошибки через Laravel Form Request, то необходимо переопределить метод `formatErrors()` в вашей реализации Form Request.
+Если вы хотите отображать ошибки через Laravel Form Request, 
+то необходимо переопределить метод `formatErrors()` в вашей реализации Form Request.
 
 ``` PHP
 

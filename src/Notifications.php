@@ -3,7 +3,6 @@
 namespace Gaaarfild\LaravelNotifications;
 
 use Illuminate\Support\Traits\Macroable;
-use Session;
 
 /**
  * Class Notifications.
@@ -30,23 +29,72 @@ class Notifications
     private $filtered = [];
 
     /**
-     * Create new instance of Notifications class.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * Set new message for the next request.
      *
      * @param $message
      * @param string $type
      * @param string $group
      */
-    public function add($message, $type = 'info', $group = '0')
+    public function add($message, $type, $group = '0')
     {
         $this->messages[] = ['message' => $message, 'type' => $type, 'group' => $group];
-        Session::flash($this->session_key, $this->messages);
+        session()->flash($this->session_key, $this->messages);
+    }
+
+    /**
+     * Alias for adding an info type of alert
+     *
+     * @param $message
+     * @param string $group
+     */
+    public function info($message, $group = '0')
+    {
+        $this->add($message, 'info', $group);
+    }
+
+    /**
+     * Alias for adding an success type of alert
+     *
+     * @param $message
+     * @param string $group
+     */
+    public function success($message, $group = '0')
+    {
+        $this->add($message, 'success', $group);
+    }
+
+    /**
+     * Alias for adding an warning type of alert
+     *
+     * @param $message
+     * @param string $group
+     */
+    public function warning($message, $group = '0')
+    {
+        $this->add($message, 'warning', $group);
+    }
+
+    /**
+     * Alias for adding an danger type of alert
+     *
+     * @param $message
+     * @param string $group
+     */
+    public function danger($message, $group = '0')
+    {
+        $this->add($message, 'danger', $group);
+    }
+
+    /**
+     * Alias for adding an error type of alert
+     * In bootstrap render will be changed to danger
+     *
+     * @param $message
+     * @param string $group
+     */
+    public function error($message, $group = '0')
+    {
+        $this->add($message, 'error', $group);
     }
 
     /**
@@ -56,7 +104,7 @@ class Notifications
      */
     public function all()
     {
-        $this->filtered = Session::get($this->session_key, []);
+        $this->filtered = session($this->session_key, []);
 
         return $this;
     }
@@ -150,17 +198,30 @@ class Notifications
      *
      * @return string
      */
+    public function toHTML($custom_template = null)
+    {
+        $custom_template = is_null($custom_template)
+            ? 'laravel-notifications/' . config('laravel-notifications.view')
+            : $custom_template;
+
+        if (view()->exists($custom_template)) {
+
+            return view($custom_template, ['messages' => $this->filtered])->render();
+        } else {
+
+            return view('laravel-notifications::bootstrap3', ['messages' => $this->filtered])->render();
+        }
+    }
+
+    /**
+     * Fallback method for bootstrap rendering.
+     *
+     * @return string
+     * @deprecated Please use toHTML() method instead
+     */
     public function toBootstrap()
     {
-        $html = '';
-        foreach ($this->filtered as $message) {
-            $html .= '<div class="alert alert-'.$message['type'].' alert-dismissable" style="margin-bottom: 1px;">
-                              <button type="button" tabindex="-1" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                              '.$message['message'].'
-                            </div>';
-        }
-
-        return $html;
+        return $this->toHTML('bootstrap3');
     }
 
     /**
@@ -173,7 +234,7 @@ class Notifications
      */
     private function filterMessage($param, $value)
     {
-        $messages = Session::get($this->session_key, []);
+        $messages = session($this->session_key, []);
 
         $filtered_messages = [];
         foreach ($messages as $message) {
