@@ -42,7 +42,7 @@ class Notifications
     }
 
     /**
-     * Alias for adding an info type of alert
+     * Alias for adding an info type of alert.
      *
      * @param $message
      * @param string $group
@@ -53,7 +53,7 @@ class Notifications
     }
 
     /**
-     * Alias for adding an success type of alert
+     * Alias for adding an success type of alert.
      *
      * @param $message
      * @param string $group
@@ -64,7 +64,7 @@ class Notifications
     }
 
     /**
-     * Alias for adding an warning type of alert
+     * Alias for adding an warning type of alert.
      *
      * @param $message
      * @param string $group
@@ -75,7 +75,7 @@ class Notifications
     }
 
     /**
-     * Alias for adding an danger type of alert
+     * Alias for adding an danger type of alert.
      *
      * @param $message
      * @param string $group
@@ -87,7 +87,7 @@ class Notifications
 
     /**
      * Alias for adding an error type of alert
-     * In bootstrap render will be changed to danger
+     * In bootstrap render will be changed to danger.
      *
      * @param $message
      * @param string $group
@@ -201,14 +201,12 @@ class Notifications
     public function toHTML($custom_template = null)
     {
         $custom_template = is_null($custom_template)
-            ? 'laravel-notifications/' . config('laravel-notifications.view')
+            ? 'laravel-notifications/'.config('laravel-notifications.view')
             : $custom_template;
 
         if (view()->exists($custom_template)) {
-
             return view($custom_template, ['messages' => $this->filtered])->render();
         } else {
-
             return view('laravel-notifications::bootstrap3', ['messages' => $this->filtered])->render();
         }
     }
@@ -217,6 +215,7 @@ class Notifications
      * Fallback method for bootstrap rendering.
      *
      * @return string
+     *
      * @deprecated Please use toHTML() method instead
      */
     public function toBootstrap()
