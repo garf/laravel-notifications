@@ -13,14 +13,18 @@ class Notifications
 
     /**
      * Messages to set to next request.
+     * 
+     * @var array
      */
     private $messages = [];
+
     /**
      * Session key to store messages.
      *
      * @var string
      */
     private $session_key = 'laravel-notifications.messages';
+
     /**
      * Filtered messages to return.
      *
@@ -31,70 +35,99 @@ class Notifications
     /**
      * Set new message for the next request.
      *
-     * @param $message
-     * @param string $type
-     * @param string $group
+     * @param string|array $message
+     * @param string       $type
+     * @param string       $group
+     * 
+     * @return $this
      */
     public function add($message, $type, $group = '0')
     {
-        $this->messages[] = ['message' => $message, 'type' => $type, 'group' => $group];
+        if (!is_array($message)) {
+            $message = [$message];
+        }
+        
+        $this->populateMessages($message, $type, $group);
+        
         session()->flash($this->session_key, $this->messages);
+        
+        return $this;
     }
 
     /**
      * Alias for adding an info type of alert.
      *
-     * @param $message
+     * @param string $message
      * @param string $group
+     * 
+     * @return $this
      */
     public function info($message, $group = '0')
     {
         $this->add($message, 'info', $group);
+        
+        return $this;
     }
 
     /**
      * Alias for adding an success type of alert.
      *
-     * @param $message
+     * @param string $message
      * @param string $group
+     * 
+     * @return $this
      */
     public function success($message, $group = '0')
     {
         $this->add($message, 'success', $group);
+        
+        return $this;
     }
 
     /**
      * Alias for adding an warning type of alert.
      *
-     * @param $message
+     * @param string $message
      * @param string $group
+     * 
+     * @return $this
      */
     public function warning($message, $group = '0')
     {
         $this->add($message, 'warning', $group);
+        
+        return $this;
     }
 
     /**
      * Alias for adding an danger type of alert.
      *
-     * @param $message
+     * @param string $message
      * @param string $group
+     * 
+     * @return $this
      */
     public function danger($message, $group = '0')
     {
         $this->add($message, 'danger', $group);
+        
+        return $this;
     }
 
     /**
      * Alias for adding an error type of alert
      * In bootstrap render will be changed to danger.
      *
-     * @param $message
+     * @param string $message
      * @param string $group
+     * 
+     * @return $this
      */
     public function error($message, $group = '0')
     {
         $this->add($message, 'error', $group);
+        
+        return $this;
     }
 
     /**
@@ -112,7 +145,7 @@ class Notifications
     /**
      * Filter messages by group.
      *
-     * @param $group
+     * @param string $group
      *
      * @return $this
      */
@@ -128,7 +161,7 @@ class Notifications
     /**
      * Filter messages by type.
      *
-     * @param $type
+     * @param string $type
      *
      * @return $this
      */
@@ -226,8 +259,8 @@ class Notifications
     /**
      * Filter messages by param.
      *
-     * @param $param
-     * @param $value
+     * @param string $param
+     * @param string $value
      *
      * @return array
      */
@@ -243,5 +276,19 @@ class Notifications
         }
 
         return $filtered_messages;
+    }
+    
+    /**
+     * Put messages in object messages stack
+     *
+     * @param array  $messages
+     * @param string $type
+     * @param string $group
+     */
+    private function populateMessages(array $messages, $type, $group)
+    {
+        foreach ($messages as $message) {
+            $this->messages[] = ['message' => $message, 'type' => $type, 'group' => $group];
+        }
     }
 }
