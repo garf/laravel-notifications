@@ -13,7 +13,7 @@ class Notifications
 
     /**
      * Messages to set to next request.
-     * 
+     *
      * @var array
      */
     private $messages = [];
@@ -38,19 +38,19 @@ class Notifications
      * @param string|array $message
      * @param string       $type
      * @param string       $group
-     * 
+     *
      * @return $this
      */
     public function add($message, $type, $group = '0')
     {
-        if (!is_array($message)) {
+        if (! is_array($message)) {
             $message = [$message];
         }
-        
+
         $this->populateMessages($message, $type, $group);
-        
+
         session()->flash($this->session_key, $this->messages);
-        
+
         return $this;
     }
 
@@ -59,13 +59,13 @@ class Notifications
      *
      * @param string $message
      * @param string $group
-     * 
+     *
      * @return $this
      */
     public function info($message, $group = '0')
     {
         $this->add($message, 'info', $group);
-        
+
         return $this;
     }
 
@@ -74,13 +74,13 @@ class Notifications
      *
      * @param string $message
      * @param string $group
-     * 
+     *
      * @return $this
      */
     public function success($message, $group = '0')
     {
         $this->add($message, 'success', $group);
-        
+
         return $this;
     }
 
@@ -89,13 +89,13 @@ class Notifications
      *
      * @param string $message
      * @param string $group
-     * 
+     *
      * @return $this
      */
     public function warning($message, $group = '0')
     {
         $this->add($message, 'warning', $group);
-        
+
         return $this;
     }
 
@@ -104,13 +104,13 @@ class Notifications
      *
      * @param string $message
      * @param string $group
-     * 
+     *
      * @return $this
      */
     public function danger($message, $group = '0')
     {
         $this->add($message, 'danger', $group);
-        
+
         return $this;
     }
 
@@ -120,13 +120,13 @@ class Notifications
      *
      * @param string $message
      * @param string $group
-     * 
+     *
      * @return $this
      */
     public function error($message, $group = '0')
     {
         $this->add($message, 'error', $group);
-        
+
         return $this;
     }
 
@@ -277,9 +277,9 @@ class Notifications
 
         return $filtered_messages;
     }
-    
+
     /**
-     * Put messages in object messages stack
+     * Put messages in object messages stack.
      *
      * @param array  $messages
      * @param string $type
