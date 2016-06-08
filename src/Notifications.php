@@ -2,12 +2,13 @@
 
 namespace Gaaarfild\LaravelNotifications;
 
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Traits\Macroable;
 
 /**
  * Class Notifications.
  */
-class Notifications
+class Notifications implements Htmlable
 {
     use Macroable;
 
