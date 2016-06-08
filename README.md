@@ -18,21 +18,13 @@ Now you can do this more convenient and easy way.
 
 ## Install
 
-Add
-
-``` JSON
-"gaaarfild/laravel-notifications": "~1.0"
-```
-
-to your `composer.json` file into `require` section.
-
-Then type in console
+To install, execute the following command in the console:
 
 ``` BASH
-$ composer update
+$ composer require "gaaarfild/laravel-notifications:~1.0"
 ```
 
-When update completed, add to your `config/app.conf` file to `providers` section
+When completed, add to your `config/app.php` file in the `providers` section
 
 ``` PHP
 'providers' => [
@@ -54,7 +46,7 @@ To change the templates, please execute the following command in the console:
 
 `php artisan vendor:publish --provider="Gaaarfild\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="config"`
 
-Now you will be able to set any view file for notifications render in `/config/laravel-notifications.php`.
+Now you will be able to set any view file for notifications render in `config/laravel-notifications.php`.
 
 Optionally you can execute the following command in the console to edit the default template, instead of using your own:
 
@@ -72,7 +64,7 @@ Notifications::add('Your message text', 'type', 'group');
 
 `$type` param used especially for Twitter Bootstrap render. It displays alerts with respective class.
 
-i.e. If you set `type` to `danger`, alert with class 'alert alert-danger' will be generated on `toBootstrap()` formate method.
+i.e. If you set `type` to `danger`, alert with class 'alert alert-danger' will be generated on `toBootstrap()` format method.
 
 `$group` param groups messages to groups. :) On the next Request you can retrieve them by group.
 
@@ -133,16 +125,16 @@ Notifications::byGroup('login')->toJson();
 You can also render your notifications with custom view files
 
 ``` PHP
-Notifications::all()->toHTML();
+{{ Notifications::all() }}
 ```
 
 And you can filter them by group or type as well:
 
 
 ``` PHP
-Notifications::byType('info')->toHTML();
+{{ Notifications::byType('info') }}
 
-Notifications::byGroup('registration')->toHTML();
+{{ Notifications::byGroup('registration') }}
 ```
 
 by default method uses Twitter Bootstrap alerts format.
