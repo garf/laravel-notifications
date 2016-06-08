@@ -100,7 +100,7 @@ class Notifications
     /**
      * Get all messages.
      *
-     * @return array
+     * @return $this
      */
     public function all()
     {
@@ -166,7 +166,7 @@ class Notifications
     /**
      * Count filtered messages amount.
      *
-     * @return array
+     * @return int
      */
     public function count()
     {
@@ -176,7 +176,7 @@ class Notifications
     /**
      * Check if messages exists.
      *
-     * @return array
+     * @return bool
      */
     public function has()
     {
@@ -186,7 +186,7 @@ class Notifications
     /**
      * Format filtered messages to JSON.
      *
-     * @return mixed
+     * @return string
      */
     public function toJson()
     {
