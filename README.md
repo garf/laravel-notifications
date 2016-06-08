@@ -52,9 +52,15 @@ If you want to use `Notifications` facade, add to same file at the `aliases` sec
 
 To change the templates, please execute the following command in the console:
 
-`php artisan vendor:publish`
+`php artisan vendor:publish --provider="Gaaarfild\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="config"`
 
-Now you will be able to set any view file for notifications render in `laravel-notifications.php`.
+Now you will be able to set any view file for notifications render in `/config/laravel-notifications.php`.
+
+Optionally you can execute the following command in the console to edit the default template, instead of using your own:
+
+`php artisan vendor:publish --provider="Gaaarfild\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="views"`
+
+Note: If you publish the view and edit it, do not change the name of the view in the config file.
 
 ## Usage
 

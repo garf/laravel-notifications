@@ -15,11 +15,11 @@ class LaravelNotificationsServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/laravel-notifications.php' => config_path('laravel-notifications.php'),
-        ]);
+        ], 'config');
 
         $this->publishes([
             __DIR__.'/../views' => base_path('resources/views/laravel-notifications'),
-        ]);
+        ], 'views');
 
         $this->loadViewsFrom(__DIR__.'/../views', 'laravel-notifications');
     }

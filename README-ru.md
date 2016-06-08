@@ -52,11 +52,16 @@ $ composer update
 
 Чтобы иметь возможность задавать собственный шаблон вывода сообщений, наберите в консоли:
 
-`php artisan vendor:publish`
+`php artisan vendor:publish --provider="Gaaarfild\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="config"`
 
-Теперь вы сможете указать в файле конфигураци `laravel-notifications.php` 
+Теперь вы сможете указать в файле конфигураци `/config/laravel-notifications.php` 
 любой удобный вам шаблон для отображения сообщений.
 
+При желании вы можете выполнить следующую команду в консоли, чтобы изменить шаблон по умолчанию, вместо того, чтобы использовать свои собственные:
+
+`php artisan vendor:publish --provider="Gaaarfild\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="views"`
+
+Примечание: Если вы опубликовать просматривать и редактировать его, не изменить название вида в конфигурационном файле.
 
 ## Использование
 
