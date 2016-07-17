@@ -20,7 +20,7 @@ Now you can do this more convenient and easy way.
 To install, execute the following command in the console:
 
 ``` BASH
-$ composer require "garf/laravel-notifications:~1.0"
+$ composer require "garf/laravel-notifications:2.*"
 ```
 
 When completed, add to your `config/app.php` file in the `providers` section

@@ -20,7 +20,7 @@
 Добавьте строчку
 
 ``` JSON
-"garf/laravel-notifications": "~1.0"
+"garf/laravel-notifications": "2.*"
 ```
 
 в ваш файл `composer.json` в секцию `require`.
