@@ -1,7 +1,7 @@
 {
-    "name": "gaaarfild/laravel-notifications",
+    "name": "garf/laravel-notifications",
     "description": "Convenient flash notifications",
-    "keywords": ["laravel", "notifications"],
+    "keywords": ["laravel", "notifications", "alert"],
     "license": "MIT",
     "authors": [
         {
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Gaaarfild\\LaravelNotifications\\": "src/"
+            "Garf\\LaravelNotifications\\": "src/"
         }
     }
 }
