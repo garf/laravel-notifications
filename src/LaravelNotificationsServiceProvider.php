@@ -1,6 +1,6 @@
 <?php
 
-namespace Gaaarfild\LaravelNotifications;
+namespace Garf\LaravelNotifications;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -32,7 +32,7 @@ class LaravelNotificationsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerLaravelNotifications();
-        $this->app->alias('Notifications', \Gaaarfild\LaravelNotifications\Notifications::class);
+        $this->app->alias('Notifications', \Garf\LaravelNotifications\Notifications::class);
     }
 
     private function registerLaravelNotifications()

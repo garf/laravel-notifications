@@ -1,13 +1,13 @@
 # Удобные системные сообщения для Laravel
 
 [![Laravel Version](https://img.shields.io/badge/laravel-5.1-orange.svg?style=flat-square)](http://laravel.com)
-[![Packagist](https://img.shields.io/packagist/dt/gaaarfild/laravel-notifications.svg)]()
-[![Licence](https://img.shields.io/packagist/l/gaaarfild/laravel-notifications.svg)](https://github.com/gaaarfild/laravel-notifications/blob/master/LICENSE)
-[![Build Status](https://travis-ci.org/gaaarfild/laravel-notifications.svg)](https://travis-ci.org/gaaarfild/laravel-notifications)
+[![Packagist](https://img.shields.io/packagist/dt/garf/laravel-notifications.svg)]()
+[![Licence](https://img.shields.io/packagist/l/garf/laravel-notifications.svg)](https://github.com/garf/laravel-notifications/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/garf/laravel-notifications.svg)](https://travis-ci.org/garf/laravel-notifications)
 
 ![Laravel Notifications](notifications.png)
 
-[English Documentation / Английская документация](https://github.com/gaaarfild/laravel-notifications/blob/master/README.md)
+[English Documentation / Английская документация](https://github.com/garf/laravel-notifications/blob/master/README.md)
 
 Система уведомлений для Laravel 5.
 
@@ -20,7 +20,7 @@
 Добавьте строчку
 
 ``` JSON
-"gaaarfild/laravel-notifications": "~1.0"
+"garf/laravel-notifications": "~1.0"
 ```
 
 в ваш файл `composer.json` в секцию `require`.
@@ -36,7 +36,7 @@ $ composer update
 ``` PHP
 'providers' => [
     // ...
-    Gaaarfild\LaravelNotifications\LaravelNotificationsServiceProvider::class,
+    Garf\LaravelNotifications\LaravelNotificationsServiceProvider::class,
 ]
 ```
 
@@ -45,20 +45,20 @@ $ composer update
 ``` PHP
 'aliases' => [
     // ...
-  'Notifications' => Gaaarfild\LaravelNotifications\NotificationsFacade::class,
+  'Notifications' => Garf\LaravelNotifications\NotificationsFacade::class,
 ]
 ```
 
 Чтобы иметь возможность задавать собственный шаблон вывода сообщений, наберите в консоли:
 
-`php artisan vendor:publish --provider="Gaaarfild\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="config"`
+`php artisan vendor:publish --provider="Garf\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="config"`
 
 Теперь вы сможете указать в файле конфигураци `/config/laravel-notifications.php` 
 любой удобный вам шаблон для отображения сообщений.
 
 При желании вы можете выполнить следующую команду в консоли, чтобы изменить шаблон по умолчанию, вместо того, чтобы использовать свои собственные:
 
-`php artisan vendor:publish --provider="Gaaarfild\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="views"`
+`php artisan vendor:publish --provider="Garf\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="views"`
 
 Примечание: Если вы опубликовать просматривать и редактировать его, не изменить название вида в конфигурационном файле.
 
@@ -201,5 +201,5 @@ Notifications::all()->first();
 
 ## Лицензия
 
-Лицензия MIT. Ознакомиться можно [здесь](https://github.com/gaaarfild/laravel-notifications/blob/master/LICENSE).
+Лицензия MIT. Ознакомиться можно [здесь](https://github.com/garf/laravel-notifications/blob/master/LICENSE).
 

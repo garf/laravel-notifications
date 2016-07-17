@@ -1,6 +1,6 @@
 <?php
 
-namespace Gaaarfild\LaravelNotifications;
+namespace Garf\LaravelNotifications;
 
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Traits\Macroable;

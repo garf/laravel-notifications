@@ -1,13 +1,13 @@
 # Laravel Convenient System Notifications
 
 [![Laravel Version](https://img.shields.io/badge/laravel-5.1-orange.svg?style=flat-square)](http://laravel.com)
-[![Packagist](https://img.shields.io/packagist/dt/gaaarfild/laravel-notifications.svg)]()
-[![Licence](https://img.shields.io/packagist/l/gaaarfild/laravel-notifications.svg)](https://github.com/gaaarfild/laravel-notifications/blob/master/LICENSE)
-[![Build Status](https://travis-ci.org/gaaarfild/laravel-notifications.svg)](https://travis-ci.org/gaaarfild/laravel-notifications)
+[![Packagist](https://img.shields.io/packagist/dt/garf/laravel-notifications.svg)]()
+[![Licence](https://img.shields.io/packagist/l/garf/laravel-notifications.svg)](https://github.com/garf/laravel-notifications/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/garf/laravel-notifications.svg)](https://travis-ci.org/garf/laravel-notifications)
 
 ![Laravel Notifications](notifications.png)
 
-[Russian Documentation / Русская документация](https://github.com/gaaarfild/laravel-notifications/blob/master/README-ru.md)
+[Russian Documentation / Русская документация](https://github.com/garf/laravel-notifications/blob/master/README-ru.md)
 
 Notification system for Laravel 5.
 
@@ -20,7 +20,7 @@ Now you can do this more convenient and easy way.
 To install, execute the following command in the console:
 
 ``` BASH
-$ composer require "gaaarfild/laravel-notifications:~1.0"
+$ composer require "garf/laravel-notifications:~1.0"
 ```
 
 When completed, add to your `config/app.php` file in the `providers` section
@@ -28,7 +28,7 @@ When completed, add to your `config/app.php` file in the `providers` section
 ``` PHP
 'providers' => [
     // ...
-    Gaaarfild\LaravelNotifications\LaravelNotificationsServiceProvider::class,
+    Garf\LaravelNotifications\LaravelNotificationsServiceProvider::class,
 ]
 ```
 
@@ -37,19 +37,19 @@ If you want to use `Notifications` facade, add to same file at the `aliases` sec
 ``` PHP
 'aliases' => [
     // ...
-  'Notifications' => Gaaarfild\LaravelNotifications\NotificationsFacade::class,
+  'Notifications' => Garf\LaravelNotifications\NotificationsFacade::class,
 ]
 ```
 
 To change the templates, please execute the following command in the console:
 
-`php artisan vendor:publish --provider="Gaaarfild\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="config"`
+`php artisan vendor:publish --provider="Garf\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="config"`
 
 Now you will be able to set any view file for notifications render in `config/laravel-notifications.php`.
 
 Optionally you can execute the following command in the console to edit the default template, instead of using your own:
 
-`php artisan vendor:publish --provider="Gaaarfild\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="views"`
+`php artisan vendor:publish --provider="Garf\LaravelNotifications\LaravelNotificationsServiceProvider" --tag="views"`
 
 Note: If you publish the view and edit it, do not change the name of the view in the config file.
 
@@ -187,5 +187,5 @@ Send your pull requests to `master` branch.
 
 ## License
 
-The MIT License (MIT). Please see [License File](https://github.com/gaaarfild/laravel-notifications/blob/master/LICENSE) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/garf/laravel-notifications/blob/master/LICENSE) for more information.
 
